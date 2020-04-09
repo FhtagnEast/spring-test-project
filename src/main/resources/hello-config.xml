@@ -4,14 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <beans>
-        <bean name="helloWorld" class="com.fhtagneast.helloworld.HelloWorld">
-            <constructor-arg name="phrase" ref="getGreeting"/>
+        <bean name="helloPrinter" class="com.fhtagneast.helloworld.utils.HelloPrinter">
+            <property name="stringSupplier" ref="stringSupplier"/>
         </bean>
 
-        <bean name="greetSuppl" class="com.fhtagneast.helloworld.suppliers.Supplier"/>
-
-        <bean name="getGreeting" factory-bean="greetSuppl" factory-method="getGreeting"/>
-
+        <bean name="stringSupplier" class="com.fhtagneast.helloworld.utils.GreetingSupplier"/>
     </beans>
 
 </beans>

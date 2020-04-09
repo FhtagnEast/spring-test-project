@@ -1,5 +1,6 @@
 package com.fhtagneast.helloworld;
 
+import com.fhtagneast.helloworld.utils.StringPrinter;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Application {
@@ -8,9 +9,8 @@ public class Application {
         GenericXmlApplicationContext context = new GenericXmlApplicationContext();
         context.load("classpath:hello-config.xml");
         context.refresh();
-        HelloWorld helloWorld = context.getBean(HelloWorld.class);
 
-        helloWorld.greeting();
-
+        StringPrinter helloPrinter = context.getBean(StringPrinter.class);
+        helloPrinter.printString();
     }
 }
