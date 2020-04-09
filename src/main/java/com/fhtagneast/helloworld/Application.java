@@ -1,14 +1,13 @@
 package com.fhtagneast.helloworld;
 
+import com.fhtagneast.helloworld.utils.HelloConfiguration;
 import com.fhtagneast.helloworld.utils.StringPrinter;
-import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Application {
 
     public static void main(String... args) {
-        GenericXmlApplicationContext context = new GenericXmlApplicationContext();
-        context.load("classpath:hello-config.xml");
-        context.refresh();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HelloConfiguration.class);
 
         StringPrinter helloPrinter = context.getBean(StringPrinter.class);
         helloPrinter.printString();
